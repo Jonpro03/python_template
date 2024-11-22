@@ -32,7 +32,7 @@ test = [
     "check-manifest==0.50",
     "pre-commit==3.3.1",
     "pytest-cov==6.0.0",
-    "pytest-mock<3.10.1",
+    "pytest-mock<3.14.1",
     "pytest-runner",
     "pytest==7.3.1",
     "pytest-github-actions-annotate-failures",
