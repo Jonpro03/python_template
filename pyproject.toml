@@ -30,7 +30,7 @@ test = [
     "bandit[toml]==1.7.10",
     "ruff==v0.4.10",
     "check-manifest==0.50",
-    "pre-commit==3.3.1",
+    "pre-commit==4.0.1",
     "pytest-cov==6.0.0",
     "pytest-mock<3.14.1",
     "pytest-runner",
