@@ -40,9 +40,34 @@ repos:
       - id: check-manifest
         stages: [manual]
 
+    # Python linter
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.7.4
     hooks:
       - id: ruff
         args: [ --fix ]
       - id: ruff-format
+
+    # Terraform Linter
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.88.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_trivy
+        files: ^terraform/
+
+  # Dockerfile linter
+- repo: https://github.com/hadolint/hadolint
+  rev: v2.12.1-beta
+  hooks:
+    - id: hadolint
+      args: [
+        '--ignore', 'DL3007', # Using latest
+        '--ignore', 'DL3013', # Pin versions in pip
+        '--ignore', 'DL3027', # Do not use apt
+        '--ignore', 'DL3059', # Docker `RUN`s shouldn't be consolidated here
+        '--ignore', 'DL4006', # Not related to alpine
+        '--ignore', 'SC1091', # Useless check
+        '--ignore', 'SC2015', # Useless check
+        '--ignore', 'SC3037', # Not related to alpine
+      ]
